@@ -1,25 +1,26 @@
-function Tweet() {
+import Message from "./Message";
+import ProfileImage from "./ProfileImage";
+import Timestamp from "./Timestamp";
+import User from "./User";
+
+
+
+function Tweet(props) {
+  
+  
   return (
     <div className="tweet">
-      <img
-        src="https://www.tecnoempleo.com/logotipos/202114.png?02"
-        className="profile"
-        alt="profile"
-      />
+      <ProfileImage image={props.tweet.user.image}/>
 
       <div className="body">
         <div className="top">
-          <span className="user">
-            <span className="name">GammaTech</span>
-            <span className="handle">@gammatech</span>
-          </span>
+          <User userData={props.tweet.user}/>
 
-          <span className="timestamp">Dec 06, 2022</span>
+          <Timestamp time={props.tweet.timestamp}/>
         </div>
 
-        <p className="message">
-          Tendremos los vinilos en clase para la vuelta del puente
-        </p>
+        <Message message={props.tweet.message} />
+        
 
         <div className="actions">
           {/* Font Awesome icons */}
@@ -30,7 +31,14 @@ function Tweet() {
         </div>
       </div>
 
+     
+     
+
       <i className="fas fa-ellipsis-h"></i>
+
+
+
+
     </div>
   );
 }
